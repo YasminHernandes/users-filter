@@ -1,18 +1,22 @@
 <!-- container -->
-<main class="flex h-screen">
+<main class="h-screen flex gap-6 p-8">
 
   <!-- left-container  -->
-    <div class="w-[70%] h-full flex flex-col">
+    <div class="w-[60%] h-full flex flex-col">
 
       <!-- top -->
-      <div class="flex-grow border border-solid border-slate-600"></div>
+      <div class="flex-grow">
+        <app-filter></app-filter>
+      </div>
 
       <!-- main left -->
-      <div class="h-[80%] border border-solid border-slate-700"></div>
+      <div class="h-[80%]">
+        <app-users-list (onUserSelected)="userSelected($event)"></app-users-list>
+      </div>
     </div>
 
     <!-- right container -->
-    <div class="w-[30%] max-h-screen border border-solid border-slate-900">
-      <app-user-details></app-user-details>
+    <div class="w-[40%] max-h-screen">
+      <app-user-details [user]="user"></app-user-details>
     </div>
 </main>

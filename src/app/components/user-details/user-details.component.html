@@ -14,14 +14,74 @@
                 Nome:
             </span>
             <span class="text-base">
-                Yasmin
+                {{ isUserEmpty ? user.nome : '' }}
             </span>
         </mat-list-item>
         
         <mat-divider></mat-divider>
         
         <mat-list-item role="listitem">
-            Item 3
+            <span class="font-semibold text-lg">
+                E-mail:
+            </span>
+            <span class="text-base">
+                {{ isUserEmpty ? user.email : '' }}
+            </span>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+        
+        <mat-list-item role="listitem">
+            <span class="font-semibold text-lg">
+                Telefone:
+            </span>
+            <span class="text-base">
+                {{ isUserEmpty ? (user.telefone | phone) : '' }}
+            </span>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+        
+        <mat-list-item role="listitem">
+            <span class="font-semibold text-lg">
+                Endereço:
+            </span>
+            <span class="text-base">
+                {{ isUserEmpty ? (user.endereco | addressPipe) : '' }}
+            </span>
+        </mat-list-item>
+        
+        <mat-divider></mat-divider>
+        
+        <mat-list-item role="listitem">
+            <span class="font-semibold text-lg">
+                Status:
+            </span>
+            <span class="text-base">
+                {{  isUserEmpty ? ( user.ativo | statusPipe ) : '' }}
+            </span>
+        </mat-list-item>
+        
+        <mat-divider></mat-divider>
+        
+        <mat-list-item role="listitem">
+            <span class="font-semibold text-lg">
+                Função:
+            </span>
+            <span class="text-base">
+                {{ isUserEmpty ? user.funcao : '' }}
+            </span>
+        </mat-list-item>
+        
+        <mat-divider></mat-divider>
+        
+        <mat-list-item role="listitem">
+            <span class="font-semibold text-lg">
+                Data de Cadastro:
+            </span>
+            <span class="text-base">
+                {{  isUserEmpty ? (user.dataCadastro | date : 'dd/MM/yyyy') : '' }}
+            </span>
         </mat-list-item>
     </mat-list>
 </div>

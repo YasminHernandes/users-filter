@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IUser } from './interfaces';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'users-filter-project';
+  user: IUser = {} as IUser
+
+  userSelected(user: IUser) { 
+    this.user = user;
+  }
 }

@@ -17,3 +17,17 @@ html, body {
 body {
     color: #333;
 }
+
+// Override Angular Material
+.mdc-button .mdc-button__label {
+    line-height: normal;
+}
+.mat-elevation-z8 {
+    box-shadow: none;
+}
+.mat-mdc-table{
+    background: transparent !important;
+}
+.mat-mdc-cell {
+    border-bottom-color: #ddd!important;
+}

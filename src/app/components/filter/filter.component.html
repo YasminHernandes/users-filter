@@ -1,0 +1,44 @@
+<div class="w-full h-full">
+    <form class="w-full h-full flex items-center flex-wrap gap-4">
+        
+        <!-- Form Name -->
+        <div>
+            <mat-form-field class="example-full-width">
+              <mat-label>Nome</mat-label>
+              <input matInput placeholder="Digite um nome..." value="">
+            </mat-form-field>
+        </div>
+
+        <!-- Form Date Picker -->
+        <div>
+            <mat-form-field>
+                <mat-label> Data de Cadastro </mat-label>
+                
+                <mat-date-range-input [rangePicker]="picker">
+                  <input matStartDate placeholder="DD/MM/YYYY">
+                  <input matEndDate placeholder="DD/MM/YYYY">
+                </mat-date-range-input>
+                
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field>
+        </div>
+
+        <!-- Form Select -->
+         <div>
+            <mat-form-field>
+                <mat-label> Status </mat-label>
+                <mat-select>
+                  @for (status of statusObj; track status) {
+                    <mat-option [value]="status.value">{{status.viewValue}}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+         </div>
+
+         <div>
+            <button mat-flat-button> Filtrar </button>
+         </div>
+    </form>
+</div>
