@@ -1,11 +1,11 @@
 <div class="w-full h-full">
-    <form class="w-full h-full flex items-center flex-wrap gap-4">
+    <div class="w-full h-full flex items-center flex-wrap gap-4">
         
         <!-- Form Name -->
         <div>
             <mat-form-field class="example-full-width">
               <mat-label>Nome</mat-label>
-              <input matInput placeholder="Digite um nome..." value="">
+              <input matInput placeholder="Digite um nome..." [(ngModel)]="filterOptions.name">
             </mat-form-field>
         </div>
 
@@ -15,8 +15,8 @@
                 <mat-label> Data de Cadastro </mat-label>
                 
                 <mat-date-range-input [rangePicker]="picker">
-                  <input matStartDate placeholder="DD/MM/YYYY">
-                  <input matEndDate placeholder="DD/MM/YYYY">
+                  <input matStartDate placeholder="DD/MM/YYYY" [(ngModel)]="filterOptions.startDate">
+                  <input matEndDate placeholder="DD/MM/YYYY" [(ngModel)]="filterOptions.endDate">
                 </mat-date-range-input>
                 
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -29,16 +29,16 @@
          <div>
             <mat-form-field>
                 <mat-label> Status </mat-label>
-                <mat-select>
-                  @for (status of statusObj; track status) {
-                    <mat-option [value]="status.value">{{status.viewValue}}</mat-option>
+                <mat-select [(ngModel)]="filterOptions.status">
+                  @for (status of statusList; track status) {
+                    <mat-option [value]="status.value">{{status.description}}</mat-option>
                   }
                 </mat-select>
               </mat-form-field>
          </div>
 
          <div>
-            <button mat-flat-button> Filtrar </button>
+            <button mat-flat-button (click)="onFilter()"> Filtrar </button>
          </div>
-    </form>
+    </div>
 </div>
